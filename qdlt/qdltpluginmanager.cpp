@@ -119,7 +119,7 @@ QStringList QDltPluginManager::loadPluginsPath(QDir &dir)
             QString s;
             QTextStream  errStr(&s);
             errStr << "-------------"
-                    << "The plugin " << dir.absoluteFilePath(fileName) << "cannot be loaded.\n\n"
+                    << "The plugin " << dir.absoluteFilePath(fileName) << " cannot be loaded.\n\n"
                     << "Error: " << pluginLoader.errorString() << "\n";
             errorStrings.append(s);
 

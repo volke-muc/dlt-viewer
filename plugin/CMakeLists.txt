@@ -13,12 +13,6 @@
 # 01.Oct.2016, Jack Smith <jack.smith@elektrobit.com>, Original Author
 #
 
-# build plugins in build/bin/plugins directory
-set(PLUGIN_DIR ${BIN_DIR}/plugins)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PLUGIN_DIR})
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PLUGIN_DIR})
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PLUGIN_DIR})
-
 
 function(add_plugin NAME)
 
@@ -28,8 +22,8 @@ function(add_plugin NAME)
     # set the location of the plugins in such a way that they can be located by the dlt-viewer executable when running in
     # directly from the build folder (without "make install")
     set_target_properties(${NAME} PROPERTIES
-        LIBRARY_OUTPUT_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
-        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+        LIBRARY_OUTPUT_DIRECTORY "$<TARGET_FILE_DIR:dlt-viewer>/plugins"
+        RUNTIME_OUTPUT_DIRECTORY "$<TARGET_FILE_DIR:dlt-viewer>/plugins"
     )
 
 endfunction()

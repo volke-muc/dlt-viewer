@@ -59,6 +59,10 @@ add_executable (${TARGET_NAME}
     ${UI_RESOURCES_RCC}
 )
 
+if(WIN32)
+    target_sources(${TARGET_NAME} PRIVATE icon/dlt_viewer.rc)
+endif()
+
 target_link_libraries (${TARGET_NAME}
     qdlt
     Qt5::Core

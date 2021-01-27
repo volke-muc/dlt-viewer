@@ -112,7 +112,7 @@ void QDltOptManager::parse(QStringList *opt)
       * Unfortunateley Windows opens a console anyway.
       * So we have to close it in this case
      */
-     #if (WIN32)
+     #if (WIN32 && NDEBUG)
      if ( opt->size() < 2)
      {
       FreeConsole();
